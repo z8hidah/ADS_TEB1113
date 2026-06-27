@@ -8,6 +8,7 @@ jaehee
 sion 
 yushi 
 riku
+sakuya
 */
 
 class Stack{
@@ -25,10 +26,28 @@ class Stack{
     }
 
     //pop
+    void pop(){
+        if (top==NULL){
+            cout<<"Stack is empty"<<endl;
+        }
+        else{
+            Stack* temp= top;
+            cout<<"Removed: "<<top->name<<endl;
+            top = top->next;
+            delete temp;
+        }
+    }
 
 
     //peek
-
+    void peek(){
+        if (top==NULL){
+            cout<<"Stack is empty"<<endl;
+        }
+        else{
+            cout<<"Top of stack: "<<top->name<<endl;
+        }
+        }
     
     //display stack
     void display(){
@@ -42,8 +61,27 @@ class Stack{
 
 int main(){
     Stack* stack = new Stack();
+
     stack->push("Sakuya");
+    stack->push("Riku");
+    stack->push("Yushi");
+
+    cout<<"Stack List: "<<endl;
     stack->display();
+
+    cout<<endl;
+
+    stack->peek();
+
+    cout<<endl;
+
+    stack->pop();
+
+    cout<<endl;
+
+    cout<<"After pop: "<<endl;
+    stack->display();
+    
     return 0;
 }
 
